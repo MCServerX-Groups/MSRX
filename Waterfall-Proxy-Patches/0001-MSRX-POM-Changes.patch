@@ -1,0 +1,127 @@
+From 9702193b1b27ffbe2fd79236b484047n9d58ebafc1 Mon Jan 9 00:00:00 2022
+From: mcserverx <admin@mcserverx.top>
+Date: Mon, 9 Jan 2022 00:00:00 +0800
+Subject: [PATCH] MSRX POM Changes
+
+
+diff --git a/MSRX/pom.xml b/MSRX/pom.xml
+new file mode 100644
+index 00000000..f4bf5ec6
+--- /dev/null
++++ b/MSRX/pom.xml
+@@ -0,0 +1,44 @@
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <parent>
++        <groupId>io.github.waterfallmc</groupId>
++        <artifactId>waterfall-parent</artifactId>
++        <version>1.18-R0.1-SNAPSHOT</version>
++        <relativePath>../pom.xml</relativePath>
++    </parent>
++
++    <groupId>io.github.mcserverx</groupId>
++    <artifactId>waterfall-MSRX</artifactId>
++    <version>1.18-R0.1-SNAPSHOT</version>
++    <packaging>jar</packaging>
++
++    <name>Waterfall-MSRX</name>
++    <description>MSRX adds security essentials and new configuration options</description>
++
++    <dependencies>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-config</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-chat</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++    </dependencies>
++
++    <build>
++        <finalName>${project.name}</finalName>
++        <resources>
++            <resource>
++                <filtering>true</filtering>
++                <directory>${basedir}/src/main/resources</directory>
++            </resource>
++        </resources>
++    </build>
++</project>
+diff --git a/pom.xml b/pom.xml
+index 505d1d14..45f14084 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -63,6 +63,7 @@
+         <module>query</module>
+         <!--<module>slf4j</module>-->
+         <module>native</module>
++        <module>MSRX</module> <!-- MSRX - POM Changes -->
+     </modules>
+ 
+     <scm>
+diff --git a/proxy/pom.xml b/proxy/pom.xml
+index cca0ef95..3df0498a 100644
+--- a/proxy/pom.xml
++++ b/proxy/pom.xml
+@@ -150,6 +150,51 @@
+             <scope>runtime</scope>
+         </dependency>
+         <!-- Waterfall end -->
++        
++        <!-- MSRX start - Add our dependencies -->
++        <dependency>
++            <groupId>io.github.mcserverx</groupId>
++            <artifactId>waterfall-MSRX</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-module-cmd-alert</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-module-cmd-find</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-module-cmd-list</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-module-cmd-send</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.github.waterfallmc</groupId>
++            <artifactId>waterfall-module-cmd-server</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <dependency>
++            <groupId>net.md-5</groupId>
++            <artifactId>bungeecord-module-reconnect-yaml</artifactId>
++            <version>${project.version}</version>
++            <scope>compile</scope>
++        </dependency>
++        <!-- MSRX end -->
+     </dependencies>
+ 
+     <build>
+-- 
+2.32.0
+
